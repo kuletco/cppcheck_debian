@@ -1,0 +1,49 @@
+#!/usr/bin/make -f
+
+# export DH_VERBOSE=1
+
+# for DEB_VERSION_UPSTREAM
+include /usr/share/dpkg/pkg-info.mk
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+bindnow
+
+export DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+
+export QT_SELECT := qt5
+
+# See http://wiki.debian.org/Hardening#Notes_for_packages_using_CMake
+CFLAGS   := $(CFLAGS) $(CPPFLAGS)
+CXXFLAGS := $(CXXFLAGS) $(CPPFLAGS)
+
+%:
+	dh $@ --buildsystem=cmake --builddirectory=build
+
+override_dh_auto_configure:
+	QTDIR= dh_auto_configure -- -DCMAKE_BUILD_TYPE=Release \
+	  -DUSE_MATCHCOMPILER=ON -DBUILD_TESTS=OFF -DBUILD_GUI=ON -DWITH_QCHART=ON \
+	  -DHAVE_RULES=ON -DFILESDIR=/usr/lib/$(DEB_HOST_MULTIARCH)/cppcheck
+
+override_dh_auto_build:
+	dh_auto_build
+	xsltproc -''-nonet -''-param man.charmap.use.subset "0" --output build/cppcheck.1 \
+	  /usr/share/sgml/docbook/stylesheet/xsl/nwalsh/manpages/docbook.xsl \
+	  man/cppcheck.1.xml
+	sed -e "s/1.70/$(DEB_VERSION_UPSTREAM)/" debian/cppcheck-htmlreport.1.in \
+	  >build/cppcheck-htmlreport.1
+
+# override_dh_auto_test:
+# ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
+# 	build/bin/testrunner
+# endif
+
+override_dh_auto_install:
+	dh_auto_install
+	install htmlreport/cppcheck-htmlreport $(CURDIR)/debian/tmp/usr/bin
+	install -d $(CURDIR)/debian/tmp/usr/share/man/man1
+	install build/cppcheck.1 $(CURDIR)/debian/tmp/usr/share/man/man1
+	install build/cppcheck-htmlreport.1 $(CURDIR)/debian/tmp/usr/share/man/man1
+	dh_install --sourcedir=debian/tmp
+
+# workaround for "dwz: debian/cppcheck/usr/bin/cppcheck: Unknown DWARF DW_OP_255"
+override_dh_dwz:
+	dh_dwz -Xcppcheck

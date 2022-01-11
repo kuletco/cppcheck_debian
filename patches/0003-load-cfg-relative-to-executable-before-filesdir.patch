@@ -1,0 +1,34 @@
+From a77ddc7dd8d136c01e1dc9c45a18ddc2c50f2989 Mon Sep 17 00:00:00 2001
+From: Wang Hong <kuletco@qq.com>
+Date: Tue, 11 Jan 2022 15:12:44 +0800
+Subject: [PATCH 3/3] load cfg relative to executable before filesdir
+
+---
+ lib/library.cpp | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/lib/library.cpp b/lib/library.cpp
+index 806941853..7cebb427c 100644
+--- a/lib/library.cpp
++++ b/lib/library.cpp
+@@ -95,14 +95,14 @@ Library::Error Library::load(const char exename[], const char path[])
+         }
+ 
+         std::list<std::string> cfgfolders;
+-#ifdef FILESDIR
+-        cfgfolders.emplace_back(FILESDIR "/cfg");
+-#endif
+         if (exename) {
+             const std::string exepath(Path::fromNativeSeparators(Path::getPathFromFilename(exename)));
+             cfgfolders.push_back(exepath + "cfg");
+             cfgfolders.push_back(exepath);
+         }
++#ifdef FILESDIR
++        cfgfolders.emplace_back(FILESDIR "/cfg");
++#endif
+ 
+         while (error == tinyxml2::XML_ERROR_FILE_NOT_FOUND && !cfgfolders.empty()) {
+             const std::string cfgfolder(cfgfolders.back());
+-- 
+2.25.1
+

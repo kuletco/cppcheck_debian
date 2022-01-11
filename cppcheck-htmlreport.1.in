@@ -1,0 +1,29 @@
+.TH CPPCHECK-HTMLREPORT "1" "September 2015" "cppcheck-htmlreport 1.70" "User Commands"
+.SH NAME
+cppcheck-htmlreport \- HTML report generator for cppcheck
+.SH SYNOPSIS
+.B cppcheck-htmlreport
+[\fI\,options\/\fR]
+.SH OPTIONS
+.TP
+\fB\-h\fR, \fB\-\-help\fR
+Show this help message and exit.
+.TP
+\fB\-\-title\fR=\fI\,TITLE\/\fR
+The title of the project.
+.TP
+\fB\-\-file\fR=\fI\,FILE\/\fR
+The cppcheck xml output file to read defects from.
+Default is reading from stdin.
+.TP
+\fB\-\-report\-dir\fR=\fI\,REPORT_DIR\/\fR
+The directory where the HTML report content is
+written.
+.TP
+\fB\-\-source\-dir\fR=\fI\,SOURCE_DIR\/\fR
+Base directory where source code files can be found.
+.TP
+\fB\-\-source\-encoding\fR=\fI\,SOURCE_ENCODING\/\fR
+Encoding of source code.
+.SH "SEE ALSO"
+.BR cppcheck (1)

@@ -1,0 +1,91 @@
+Source: cppcheck
+Section: devel
+Priority: optional
+Maintainer: Joachim Reichel <reichel@debian.org>
+Build-Depends: debhelper-compat (= 12), dh-sequence-python3, dpkg-dev (>= 1.15.7~),
+  xsltproc, docbook-xsl, docbook-xml, cmake,libtinyxml2-dev (>= 6.2.0+dfsg),
+  libpcre3-dev, qt5-qmake, qtbase5-dev, qtbase5-dev-tools, qttools5-dev,
+  libqt5charts5-dev, gdb, dh-python, python3-all
+Standards-Version: 4.5.0
+Rules-Requires-Root: no
+Homepage: http://sourceforge.net/p/cppcheck/wiki/Home/
+
+Package: cppcheck
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python3:Depends}, python3-pygments
+Suggests: cppcheck-gui
+Description: tool for static C/C++ code analysis (CLI)
+ Cppcheck is a command-line tool that tries to detect bugs that your
+ C/C++ compiler doesn't see. It is versatile, and can check non-standard
+ code including various compiler extensions, inline assembly code, etc.
+ Its internal preprocessor can handle includes, macros, and several
+ preprocessor commands. While Cppcheck is highly configurable,
+ you can start using it just by giving it a path to the source code.
+ .
+ It includes checks for:
+  * pointers to out-of-scope auto variables;
+  * assignment of auto variables to an effective parameter of a function;
+  * out-of-bounds errors in arrays and STL;
+  * missing class constructors;
+  * variables not initialized by a constructor;
+  * use of memset, memcpy, etcetera on a class;
+  * non-virtual destructors for base classes;
+  * operator= not returning a constant reference to itself;
+  * use of deprecated functions (mktemp, gets, scanf);
+  * exceptions thrown in destructors;
+  * memory leaks in class or function variables;
+  * C-style pointer cast in C++ code;
+  * redundant if;
+  * misuse of the strtol or sprintf functions;
+  * unsigned division or division by zero;
+  * unused functions and struct members;
+  * passing parameters by value;
+  * misuse of signed char variables;
+  * unusual pointer arithmetic (such as "abc" + 'd');
+  * dereferenced null pointers;
+  * incomplete statements;
+  * misuse of iterators when iterating through a container;
+  * dereferencing of erased iterators;
+  * use of invalidated vector iterators/pointers;
+ .
+ This package contains the command-line interface for cppcheck.
+
+Package: cppcheck-gui
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, cppcheck (= ${binary:Version})
+Suggests: python3, clang
+Description: tool for static C/C++ code analysis (GUI)
+ Cppcheck is a command-line tool that tries to detect bugs that your
+ C/C++ compiler doesn't see. It is versatile, and can check non-standard
+ code including various compiler extensions, inline assembly code, etc.
+ Its internal preprocessor can handle includes, macros, and several
+ preprocessor commands. While Cppcheck is highly configurable,
+ you can start using it just by giving it a path to the source code.
+ .
+ It includes checks for:
+  * pointers to out-of-scope auto variables;
+  * assignment of auto variables to an effective parameter of a function;
+  * out-of-bounds errors in arrays and STL;
+  * missing class constructors;
+  * variables not initialized by a constructor;
+  * use of memset, memcpy, etcetera on a class;
+  * non-virtual destructors for base classes;
+  * operator= not returning a constant reference to itself;
+  * use of deprecated functions (mktemp, gets, scanf);
+  * exceptions thrown in destructors;
+  * memory leaks in class or function variables;
+  * C-style pointer cast in C++ code;
+  * redundant if;
+  * misuse of the strtol or sprintf functions;
+  * unsigned division or division by zero;
+  * unused functions and struct members;
+  * passing parameters by value;
+  * misuse of signed char variables;
+  * unusual pointer arithmetic (such as "abc" + 'd');
+  * dereferenced null pointers;
+  * incomplete statements;
+  * misuse of iterators when iterating through a container;
+  * dereferencing of erased iterators;
+  * use of invalidated vector iterators/pointers
+ .
+ This package contains the graphical user interface for cppcheck.

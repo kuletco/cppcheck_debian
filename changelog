@@ -1,0 +1,719 @@
+cppcheck (2.7-dev) focal; urgency=medium
+
+  * Update Version to 2.7-dev
+
+ -- Kuletco <kuletco@qq.com>  Mon, 10 Jan 2022 16:15:38 +0800
+
+cppcheck (1.90-4build1) focal; urgency=medium
+
+  * No-change rebuild for libgcc-s1 package name change.
+
+ -- Matthias Klose <doko@ubuntu.com>  Mon, 23 Mar 2020 07:11:55 +0100
+
+cppcheck (1.90-4) unstable; urgency=medium
+
+  * Re-add cppcheck-htmlreport which got lost in 1.90-2 (Closes: #949944).
+  * Update Standards-Version to 4.5.0 (no changes needed).
+
+ -- Joachim Reichel <reichel@debian.org>  Mon, 27 Jan 2020 22:38:54 +0100
+
+cppcheck (1.90-3) unstable; urgency=medium
+
+  * Improve debian/rules (thanks to Lisandro Meyer), in particular fix
+    for parallel builds and simplifications (Closes: #949181).
+  * Add versioned Depends: cppcheck to cppcheck-gui due to the cfg files
+    (Closes: #949199, LP: #1854552).
+  * Remove unused debian/clean and debian/dirs.
+
+ -- Joachim Reichel <reichel@debian.org>  Sat, 18 Jan 2020 10:22:50 +0100
+
+cppcheck (1.90-2) unstable; urgency=medium
+
+  * Use build system based on cmake which supports generation of *.qm files
+    required for translations (Closes: #948885).
+  * Recreate all patches as necessary. This should also fix usage of addons.
+  * Enable QCharts support (Closes: #948888).
+
+ -- Joachim Reichel <reichel@debian.org>  Thu, 16 Jan 2020 22:12:42 +0100
+
+cppcheck (1.90-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Remove patch bug-9353 (fixed upstream).
+  * Remove debian/source/include-binaries (unnecessary, added by accident
+    in 1.77-1).
+  * Use debhelper compat version 12 (no changes needed).
+
+ -- Joachim Reichel <reichel@debian.org>  Mon, 30 Dec 2019 10:07:19 +0100
+
+cppcheck (1.89-4) unstable; urgency=medium
+
+  * Add patch bug-9359: Loosen check to ignore char vs signed char vs
+    unsigned char.
+
+ -- Joachim Reichel <reichel@debian.org>  Sat, 05 Oct 2019 12:46:53 +0200
+
+cppcheck (1.89-3) unstable; urgency=medium
+
+  * Fix patch fix-default-settings: do not use FILESDIR in tryLoadLibrary(),
+    use separate cppcheck binary with different FILESDIR setting for tests.
+
+ -- Joachim Reichel <reichel@debian.org>  Tue, 01 Oct 2019 03:07:56 +0200
+
+cppcheck (1.89-2) unstable; urgency=medium
+
+  * Fix patch fix-default-settings: remove "cfg" path component from
+    FILESDIR, use FILESDIR in tryLoadLibrary().
+
+ -- Joachim Reichel <reichel@debian.org>  Mon, 30 Sep 2019 21:33:05 +0200
+
+cppcheck (1.89-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Remove redundant X-Python-Version: from debian/control.
+  * Update Standards-Version to 4.4.1 (no changes needed).
+
+ -- Joachim Reichel <reichel@debian.org>  Mon, 30 Sep 2019 19:45:13 +0200
+
+cppcheck (1.88-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Joachim Reichel <reichel@debian.org>  Wed, 03 Jul 2019 21:07:06 +0200
+
+cppcheck (1.87-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Add Rules-Requires-Root: no to debian/control.
+
+ -- Joachim Reichel <reichel@debian.org>  Sat, 02 Mar 2019 16:37:27 +0100
+
+cppcheck (1.86-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Update Standards-Version to 4.3.0 (no changes needed).
+  * Change patch fix-python-default to set the default python path to
+    /usr/bin/python3; rename patch to fix-default-settings.
+  * Extend patch to set the default DATADIR to /usr/share/cppcheck/cfg
+    (Closes: #917630).
+  * Fix typo in changelog of 1.85-2.
+
+ -- Joachim Reichel <reichel@debian.org>  Sat, 29 Dec 2018 18:29:50 +0100
+
+cppcheck (1.85-2) unstable; urgency=medium
+
+  * Fix FTBFS due to char signedness: remove patch again, superseded
+    upstream (Closes: 914520).
+
+ -- Joachim Reichel <reichel@debian.org>  Sat, 24 Nov 2018 16:49:56 +0100
+
+cppcheck (1.85-1) unstable; urgency=medium
+
+  * Fix lintian warnings insecure-copyright-format-uri and
+    description-contains-invalid-control-statement
+
+ -- Joachim Reichel <reichel@debian.org>  Fri, 23 Nov 2018 17:32:14 +0100
+
+cppcheck (1.84-2) unstable; urgency=medium
+
+  * Fix FTBFS due to char signedness (Closes: #905577).
+  * Update Standards-Version to 4.2.0 (no changes needed).
+  * Remove outdated upstream changelog.
+
+ -- Joachim Reichel <reichel@debian.org>  Tue, 07 Aug 2018 22:36:03 +0200
+
+cppcheck (1.84-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Update Standards-Version to 4.1.5 (no changes needed).
+
+ -- Joachim Reichel <reichel@debian.org>  Thu, 19 Jul 2018 19:18:23 +0200
+
+cppcheck (1.83-2) unstable; urgency=medium
+
+  * Add versioned Build-Depends: libtinyxml2-dev (>= 6.2.0+dfsg-1). The
+    layout of tinyxml2::XMLDocument was changed between 6.0.0 and 6.2.0
+    without bumping the SONAME (Closes: #898327).
+
+ -- Joachim Reichel <reichel@debian.org>  Sun, 13 May 2018 10:29:45 +0200
+
+cppcheck (1.83-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Add Suggests: python3, clang to cppcheck-gui.
+  * Add patch fix-python-default to set default python path to
+    /usr/bin/python3 in UI.
+  * Change X-Python-Version: >= 2.6 to X-Python3-Version: >= 3.5 in
+    debian/control, override shebang line to use /usr/bin/python3
+    (Closes: #890305).
+  * Update Standards-Version to 4.1.4 (no changes needed).
+
+ -- Joachim Reichel <reichel@debian.org>  Fri, 06 Apr 2018 09:23:15 +0200
+
+cppcheck (1.82-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Use debhelper compat version 11 (no changes needed).
+  * Update Standards-Version to 4.1.3 (no changes needed).
+  * Change Build-Depends: python-all to python3-all.
+  * Change Depends: python-pygments to python3-pygments for cppcheck.
+  * Fix lintian warnings file-contains-trailing-whitespace and
+    override_dh_auto_test-does-not-check-DEB_BUILD_PROFILES.
+
+ -- Joachim Reichel <reichel@debian.org>  Tue, 06 Feb 2018 20:49:13 +0100
+
+cppcheck (1.81-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Added patch fix-cxxflags such that flags are added to CXXFLAGS even if
+    it is already set.
+  * Fixed build of gui subdirectory if CC or CXX contain spaces, e.g., if
+    CXX="ccache g++" (Closes: #819947)
+  * Suppress lintian warning "extra-license-file" for
+    /usr/share/cppcheck/cfg/bsd.cfg.
+  * Update Standards-Version to 4.1.1 (no changes needed).
+
+ -- Joachim Reichel <reichel@debian.org>  Mon, 30 Oct 2017 09:40:44 +0100
+
+cppcheck (1.80-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Update Standards-Version to 4.0.1 (no changes needed).
+
+ -- Joachim Reichel <reichel@debian.org>  Thu, 17 Aug 2017 13:11:58 +0200
+
+cppcheck (1.79-2) unstable; urgency=medium
+
+  * Upload to unstable.
+  * Update Standards-Version to 4.0.0 (no changes needed).
+
+ -- Joachim Reichel <reichel@debian.org>  Sun, 09 Jul 2017 18:17:25 +0200
+
+cppcheck (1.79-1) experimental; urgency=medium
+
+  * New upstream release (Closes: #861594).
+  * Remove patch ftbfs-g++-7 (superseded upstream).
+  * Add Suggests: cppcheck-gui for cppcheck (Closes: #860395).
+  * Add Depends: cppcheck for cppcheck-gui (Closes: #861311).
+
+ -- Joachim Reichel <reichel@debian.org>  Tue, 16 May 2017 20:25:39 +0200
+
+cppcheck (1.78-1) experimental; urgency=medium
+
+  * New upstream release.
+  * Add "export DEB_BUILD_MAINT_OPTIONS = hardening=+bindnow" to
+    debian/rules.
+
+ -- Joachim Reichel <reichel@debian.org>  Sun, 09 Apr 2017 17:56:24 +0200
+
+cppcheck (1.77-1) experimental; urgency=medium
+
+  * New upstream release (Closes: #842055).
+  * Add patch ftbfs-g++-7 to fix FTBFS with g++-7 (Closes: #853356).
+  * Remove gui/.qmake.stash in clean target.
+
+ -- Joachim Reichel <reichel@debian.org>  Sun, 12 Feb 2017 12:31:51 +0100
+
+cppcheck (1.76.1-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Joachim Reichel <reichel@debian.org>  Thu, 27 Oct 2016 19:49:04 +0200
+
+cppcheck (1.75-1) unstable; urgency=medium
+
+  * New upstream release (Closes: #835771).
+  * Remove patch 7533_va_list (superseded upstream).
+  * Update patch link-cppcheck-with-system-tinyxml and rename to
+    use-system-tinyxml, update debian/rules: build and link
+    externals/simplecpp, but not externals/tinyxml.
+  * Enable test suite (Closes: #833142).
+
+ -- Joachim Reichel <reichel@debian.org>  Sun, 28 Aug 2016 13:39:11 +0200
+
+cppcheck (1.74-2) unstable; urgency=medium
+
+  * Add patch 7533_va_list (Closes: #828155).
+
+ -- Joachim Reichel <reichel@debian.org>  Mon, 27 Jun 2016 21:33:01 +0200
+
+cppcheck (1.74-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Joachim Reichel <reichel@debian.org>  Mon, 13 Jun 2016 19:25:49 +0200
+
+cppcheck (1.73-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Update Standards-Version to 3.9.8 (no changes needed).
+
+ -- Joachim Reichel <reichel@debian.org>  Sun, 24 Apr 2016 20:02:28 +0200
+
+cppcheck (1.72-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Joachim Reichel <reichel@debian.org>  Sat, 13 Feb 2016 07:57:44 +0100
+
+cppcheck (1.71-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Joachim Reichel <reichel@debian.org>  Sun, 03 Jan 2016 11:27:52 +0100
+
+cppcheck (1.70-2) unstable; urgency=medium
+
+  * Add binary package cppcheck-gui (Closes: #619297).
+  * Distribute cppcheck-htmlreport in the binary package cppcheck and add
+    Depends: python-pygments (Closes: #671757).
+
+ -- Joachim Reichel <reichel@debian.org>  Sat, 12 Sep 2015 20:24:37 +0200
+
+cppcheck (1.70-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Fix CFGDIR setting broken in 1.69-2.
+
+ -- Joachim Reichel <reichel@debian.org>  Tue, 08 Sep 2015 19:19:28 +0200
+
+cppcheck (1.69-2) unstable; urgency=medium
+
+  * New maintainer.
+  * Support parallel builds, thanks to Aron Xu for the patch (Closes: #788649).
+  * Fix Homepage: in debian/control (Closes: #786503).
+
+ -- Joachim Reichel <reichel@debian.org>  Sat, 05 Sep 2015 14:44:32 +0200
+
+cppcheck (1.69-1) unstable; urgency=low
+
+  * New upstream release
+  * Fix misprocessing of typedef. Closes: #706496
+  * Fix goto handling. Closes: #706498
+  * Fix cpp synbol handing in C code. Closes: #718801
+  * Fix internal error. Closes: #723892
+  * Fix variable scope check. Closes: #754215
+  * Fix new version. Closes: #776581
+  * Fix segfault. Closes: #778926
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Sat, 02 May 2015 21:38:07 +0300
+
+cppcheck (1.68-1) unstable; urgency=low
+
+  * New upstream release
+  * copyright: Use simplified copyright format like it is in the source files
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Wed, 18 Mar 2015 22:13:52 +0200
+
+cppcheck (1.67-1) unstable; urgency=low
+
+  * New upstream release
+  * control: Standards-version 3.9.5 -> 3.9.6
+  * copyright: Remove htdocs, remove nonexisting files, update years
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Sun, 19 Oct 2014 23:21:10 +0300
+
+cppcheck (1.66-1) unstable; urgency=medium
+
+  * New upstream release
+  * patches: Remove all patches
+  * rules: Install without makefile
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Sun, 03 Aug 2014 21:56:54 +0300
+
+cppcheck (1.65-1) unstable; urgency=low
+
+  * New upstream release. Closes: #734617
+  * rules: Disable tests, disable upstream changelog
+  * control: Standards-version: 3.9.4 -> 3.9.5
+  * watch: Add dversionmangle
+  * copyright: htdocs excluded, format url updated. Closes: #735502
+  * patches: Disable installation of htmlreport and fix CFGDIR install
+  * dirs: Add usr/share/cppcheck/cfg
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Sun, 11 May 2014 09:42:04 +0300
+
+cppcheck (1.62-1) unstable; urgency=low
+
+  * New upstream release
+  * rules: Install upstream.changelog to /usr/share/doc/cppcheck/
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Wed, 30 Oct 2013 22:21:09 +0200
+
+cppcheck (1.61-1) unstable; urgency=low
+
+  * New upstream release
+  * rules: add INCLUDE_FOR_LIB to makeit work with new upstream makefile
+  * Fix false positive, address of uninitialized variable, Closes: #706494
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Sun, 04 Aug 2013 08:39:00 +0300
+
+cppcheck (1.60.1-1) unstable; urgency=low
+
+  * New upstream release
+  * control: Standards-Version: 3.9.3 -> 3.9.4
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Tue, 04 Jun 2013 19:37:14 +0300
+
+cppcheck (1.59-1) unstable; urgency=low
+
+  * New upstream release
+  * control: Change libtinyxml-dev to libtinyxml2-dev
+  * rules: Change -ltinyxml to -ltinyxml2
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Mon, 01 Apr 2013 10:16:31 +0300
+
+cppcheck (1.58-1) unstable; urgency=low
+
+  * New upstream release
+  * copyright: update and add some new authors
+  * Fix c++11 handling, Closes: #688759
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Sat, 19 Jan 2013 21:08:42 +0200
+
+cppcheck (1.57-1) unstable; urgency=low
+
+  * New upstream release
+  * control: debhelper requirement upgraded from 8 to 9
+  * control: removed hardening-includes
+  * compat: upgraded from 8 to 9
+  * rules: deletet a lot lines related to hardening
+  * Fix internal error in Cppcheck, Closes: #686976
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Sun, 04 Nov 2012 23:32:19 +0200
+
+cppcheck (1.56-1) unstable; urgency=low
+
+  * New upstream release
+  * rules: Removed -Iexternals* to avoid using from headers when compiling
+  * rules: Removed duplicate HAVE_RULES
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Sat, 01 Sep 2012 21:27:03 +0300
+
+cppcheck (1.55-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Sun, 01 Jul 2012 19:25:42 +0300
+
+cppcheck (1.54-1) unstable; urgency=low
+
+  * New upstream release
+  * control: standards-version 3.9.2 -> 3.9.3
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Mon, 16 Apr 2012 21:14:07 +0300
+
+cppcheck (1.53-1) unstable; urgency=low
+
+  * New upstream release
+  * Remove patch as spelling is fixed in upstream.
+  * Update years in copyright file
+  * Fix crash in QtMoko: Closes: #656174
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Sat, 11 Feb 2012 16:45:06 +0200
+
+cppcheck (1.52-1) unstable; urgency=low
+
+  * New upstream release
+  * rules: Use HAVE_RULES=yes argument for makefile, due to upstream change
+  * Apply patch to fix spelling error in upstream: explicitely
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Sat, 10 Dec 2011 20:29:53 +0200
+
+cppcheck (1.51-1) unstable; urgency=low
+
+  * New upstream release
+  * Fix false-negative for realloc. Closes: #628593
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Sat, 08 Oct 2011 21:55:53 +0300
+
+cppcheck (1.50-1) unstable; urgency=low
+
+  * New upstream release
+  * Fix ftbs with --as-needed. Closes: #632084
+  * Apply crash patch from upstream: 961b6e77522a7635ebbffaba37698950fcb413a0
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Sun, 14 Aug 2011 15:57:14 +0300
+
+cppcheck (1.49-1) unstable; urgency=low
+
+  * New upstream release
+  * Fix segmentation fault with asm code. Closes: #625959
+  * control: Standars-version changed 3.9.1 -> 3.9.2
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Tue, 14 Jun 2011 21:23:39 +0300
+
+cppcheck (1.48-1) unstable; urgency=low
+
+  * New upstream release
+  * control: build-depend: libtinyxml-dev
+  * rules: libtinyxml instead of embedded tinyxml, add -DHAVE_RULES cxx flag
+  * patches: removed, as included in the new version
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Mon, 11 Apr 2011 21:15:03 +0300
+
+cppcheck (1.47-4) unstable; urgency=low
+
+  * 3rd try fixing FTBFS in multiple architectures. Closes: #613308
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Tue, 22 Feb 2011 21:53:00 +0200
+
+cppcheck (1.47-3) unstable; urgency=low
+
+  * 2nd try fixing FTBFS in multiple architectures. Closes: #613308
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Thu, 17 Feb 2011 22:45:08 +0200
+
+cppcheck (1.47-2) unstable; urgency=low
+
+  * Fix FTBFS in multiple architectures. Closes: #613308
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Mon, 14 Feb 2011 22:28:10 +0200
+
+cppcheck (1.47-1) unstable; urgency=low
+
+  * New upstream release
+  * Default value for --enable described in manual. Closes: #599190
+  * False positive fixed: Function pointer returning typedef. Closes: #607312
+  * 0X10 number handling fixed. Closes: #608002
+  * False positive fixed: Memory leak. Closes: #609354
+  * Build time dependency added: libpcre3-dev
+  * Add tinyxml to copyright file
+  * control: Standars-version changed 3.9.0 -> 3.9.1
+  * Apply following patches from Peter Pentchev:
+    - Use DEP-5 rev. 135 for the copyright file format.
+    - Honor the C preprocessor flags in CPPFLAGS.
+    - Use dpkg-buildflags to obtain the default CPPFLAGS, CXXFLAGS and LDFLAGS.
+    - Use build hardening unless the "nohardening" build option is specified.
+    - Use the dh(1) helper.
+    - Split dh_* arguments into separate files to simplify the build.
+    - Use debhelper override rules.
+    - Bump the debhelper compat level to 8 with no changes.
+    - Update to DEP 5 rev. 166 use single copyright header
+    - Bump the upstream copyright years
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Sun, 06 Feb 2011 20:20:48 +0200
+
+cppcheck (1.44-1) unstable; urgency=low
+
+  * New upstream release
+  * Zachary Blair and Martin Ettl added to copyright file
+  * control: Standars-version changed 3.8.4 -> 3.9.0
+  * Remove patch debian-changes-1.43-3, because applied to upstream
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Tue, 13 Jul 2010 16:24:55 +0300
+
+cppcheck (1.43-3) unstable; urgency=low
+
+  * Remove --auto-dealloc and --all from man page
+  * Switch to dpkg-source 3.0 (quilt) format
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Mon, 10 May 2010 22:19:46 +0300
+
+cppcheck (1.43-2) unstable; urgency=low
+
+  * Remove --enable=possibleError from man page
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Mon, 10 May 2010 21:38:46 +0300
+
+cppcheck (1.43-1) unstable; urgency=low
+
+  * New upstream release
+  * False positive fixed. Closes: #546605
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Sun, 09 May 2010 21:34:22 +0300
+
+cppcheck (1.42-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Fri, 12 Mar 2010 22:06:09 +0200
+
+cppcheck (1.41-2) unstable; urgency=low
+
+  * copyright: update years
+  * copyright: Robert Reif added
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Sun, 07 Mar 2010 22:24:20 +0200
+
+cppcheck (1.41-1) unstable; urgency=low
+
+  * New upstream release
+  * control: Descriptions rewritten
+  * control: Standars-version changed 3.8.3 -> 3.8.4
+  * False positive resource leak fixed. Closes: #566604
+  * Package description improved. Closes: #567759
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Sun, 07 Mar 2010 21:25:03 +0200
+
+cppcheck (1.40-1) unstable; urgency=low
+
+  * New upstream release
+  * control: Long description updated
+  * control: Added misc:Depends
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Mon, 18 Jan 2010 23:15:55 +0200
+
+cppcheck (1.39-1) unstable; urgency=low
+
+  * New upstream release
+  * False positive with resource leak fixed. Closes: #554448
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Sun, 06 Dec 2009 16:20:47 +0200
+
+cppcheck (1.38-1) unstable; urgency=low
+
+  * New upstream release
+  * False positive with resource leak fixed. Closes: #550793
+  * control: Long description, added Exception safety
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Sun, 25 Oct 2009 15:31:26 +0200
+
+cppcheck (1.37-1) unstable; urgency=low
+
+  * New upstream release
+  * control: Standars-version changed 3.8.1 -> 3.8.2
+  * control: Long description, unusal -> unusual
+  * control: Long description, removed the "We recommend" sentence.
+  * False positive with memset fixed. Closes: #544591
+  * False positive with resource leak fixed. Closes: #542352
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Tue, 22 Sep 2009 23:10:56 +0300
+
+cppcheck (1.35-1) unstable; urgency=low
+
+  * New upstream release
+  * False positive fixed. Closes: #539626
+  * Infinite loop fixed. Closes: #537362
+  * Several "invalid number of character" fixes. Closes: #532820
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Sun, 16 Aug 2009 18:37:26 +0300
+
+cppcheck (1.34-1) unstable; urgency=low
+
+  * New upstream release
+  * control: Standars-version changed 3.8.1 -> 3.8.2
+  * control: Description changed: "A tool" -> "Tool"
+  * control: Long description rewritten to reflect upstream wiki
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Sun, 12 Jul 2009 22:01:52 +0300
+
+cppcheck (1.33-1) unstable; urgency=low
+
+  * New upstream release
+  * control: Feature list updated to reflect current status
+  * copyright: new developer added, Bill Egert
+  * copyright: new developer added, Hoang Tuan Su
+  * copyright: new developer added, Slava Semushin
+  * docs: AUTHORS file was added (from upstream)
+  * Upstream changelog was added
+  * Segmentation fault fixed. Closes: #528981
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Sun, 07 Jun 2009 19:06:36 +0300
+
+cppcheck (1.32-1) unstable; urgency=low
+
+  * New upstream release
+  * control: Feature list updated to reflect current status
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Sun, 10 May 2009 21:45:52 +0300
+
+cppcheck (1.31-1) unstable; urgency=low
+
+  * New upstream release
+  * control: Standards-version from 3.8.0 to 3.8.1
+  * copyright: new developer added, Nguyen Duong Tuan
+  * copyright: new developer added, Gianluca Scacco
+  * control: Feature list updated to reflect current status
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Sun, 12 Apr 2009 22:12:33 +0300
+
+cppcheck (1.30-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Sun, 08 Mar 2009 21:09:53 +0200
+
+cppcheck (1.29-1) unstable; urgency=low
+
+  * New upstream release
+  * copyright: new developer added, Vesa Pikki
+  * copyright: Year 2009 added to man page copyright
+  * control: Feature list updated to reflect current status
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Mon, 02 Mar 2009 21:30:02 +0200
+
+cppcheck (1.28-2) unstable; urgency=low
+
+  * rules: changed dh_clean -k to dh_prep
+  * copyright: use Use GPL-3 and GPL-2 files instead of GPL
+  * control: Updated description to reflect current status
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Mon, 02 Feb 2009 21:55:02 +0200
+
+cppcheck (1.28-1) unstable; urgency=low
+
+  * New upstream release
+  * Now also processes .c++ files. Closes: #512060
+  * Doesn't give false positive with streams. Closes: #512141
+  * Leandro Penz added to the copyright file
+  * Kimmo Varis added to the copyright file
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Sun, 01 Feb 2009 10:32:30 +0200
+
+cppcheck (1.27-2) unstable; urgency=low
+
+  * Nicolas Le Cam added to the copyright file
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Tue, 30 Dec 2008 22:59:49 +0200
+
+cppcheck (1.27-1) unstable; urgency=low
+
+  * New upstream release
+  * Removed man page from debian/, using upstream version instead
+  * rules-file updated to use man page that comes with the upstream release
+  * README.Debian-file removed (nothing is customized anymore)
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Tue, 30 Dec 2008 21:50:37 +0200
+
+cppcheck (1.26-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Sun, 30 Nov 2008 21:21:15 +0200
+
+cppcheck (1.25-4) unstable; urgency=low
+
+  * Added build dependecy required by the man page: docbook-xml
+  * Correct name changed to README.Debian
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Sun, 09 Nov 2008 20:48:49 +0200
+
+cppcheck (1.25-3) unstable; urgency=low
+
+  * Reverted previous utf-8 changes to source files back to original
+  * Using dh_clean instead of rm to remove cppcheck.1
+  * Fixed typos in 1.25-2 change history
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Thu, 06 Nov 2008 01:10:52 +0200
+
+cppcheck (1.25-2) unstable; urgency=low
+
+  * Removed duplicate entry from docs
+  * Added watch file
+  * Changed copyright to match wiki.debian.org proposal
+  * Fixed encoding to utf-8 on FileLister.* and testtokenize.cpp
+  * Added homepage to control file
+  * clean now removes cppcheck.1
+  * cppcheck.1 is build with xsltproc instead of docbook2x
+  * *-stamp is removed by dh_clean instead of rm command
+  * Removed configure target from rules file
+  * Removed usage of dh_installexamples
+  * Improved description in the control file
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Wed, 05 Nov 2008 23:33:36 +0200
+
+cppcheck (1.25-1) unstable; urgency=low
+
+  * Initial release (Closes: #503730)
+
+ -- Reijo Tomperi <aggro80@users.sourceforge.net>  Wed, 05 Nov 2008 00:31:09 +0200

@@ -1,0 +1,6 @@
+usr/bin/cppcheck
+usr/bin/cppcheck-htmlreport
+usr/lib/*/cppcheck/addons/*
+usr/lib/*/cppcheck/cfg/*
+usr/lib/*/cppcheck/platforms/*
+usr/share/man/man1/*

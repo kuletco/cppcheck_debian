@@ -1,0 +1,25 @@
+From 7592cb3d17ce6a50600545500562a3597197bced Mon Sep 17 00:00:00 2001
+From: Wang Hong <kuletco@qq.com>
+Date: Tue, 11 Jan 2022 15:12:09 +0800
+Subject: [PATCH 2/3] install translations in filesdir lang
+
+---
+ gui/CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/gui/CMakeLists.txt b/gui/CMakeLists.txt
+index 213ad5918..dfc0999cc 100644
+--- a/gui/CMakeLists.txt
++++ b/gui/CMakeLists.txt
+@@ -51,7 +51,7 @@ if (BUILD_GUI)
+     endif()
+ 
+     install(TARGETS cppcheck-gui RUNTIME DESTINATION ${CMAKE_INSTALL_FULL_BINDIR} COMPONENT applications)
+-    install(FILES ${qms} DESTINATION ${CMAKE_INSTALL_FULL_BINDIR} COMPONENT applications)
++    install(FILES ${qms} DESTINATION ${FILESDIR}/lang COMPONENT applications)
+ 
+     install(FILES cppcheck-gui.desktop DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)
+ 
+-- 
+2.25.1
+

@@ -1,0 +1,5 @@
+usr/bin/cppcheck-gui
+usr/lib/*/cppcheck/lang/*
+usr/share/applications/cppcheck-gui.desktop
+usr/share/icons/hicolor/scalable/apps/cppcheck-gui.svg
+usr/share/icons/hicolor/64x64/apps/cppcheck-gui.png

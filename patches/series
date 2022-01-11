@@ -1,0 +1,3 @@
+0001-fix-default-settings.patch
+0002-install-translations-in-filesdir-lang.patch
+0003-load-cfg-relative-to-executable-before-filesdir.patch
